@@ -301,10 +301,11 @@ Window {
     width: parent.width
     height: childrenRect.height
     Rectangle {
+      id: menu
       height: childrenRect.height
       width: parent.width
       y: +!hover.hovered * -height
-      Behavior on y { NumberAnimation {} }
+      Behavior on y { SequentialAnimation { PauseAnimation { duration: +!menu.y * 500 } NumberAnimation {} } }
       color: palette.window
       RowLayout {
         Switch { id: initSwitch; text: 'INIT'; checked: true }
