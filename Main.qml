@@ -271,14 +271,15 @@ Window {
                   id: ti
                   anchors.fill: parent
 
-                  property int v: r2.m.v
-                  Behavior on v { enabled: solveSwitch.checked || clearSwitch.checked; NumberAnimation { duration: 500 } }
+                  // fancy animation of value while solving or clearing
+                  property int value: r2.m.v
+                  Behavior on value { enabled: solveSwitch.checked || clearSwitch.checked; NumberAnimation { duration: 500 } }
 
                   validator: RegularExpressionValidator { regularExpression: /[0-9]?/ }
                   horizontalAlignment: TextInput.AlignHCenter
                   verticalAlignment: TextInput.AlignVCenter
                   font.pixelSize: height * 2 / 3
-                  text: v || ''
+                  text: value || ''
                   color: palette.windowText
                   enabled: !r2.m.i || initSwitch.checked
                   font.bold: r2.m.i
